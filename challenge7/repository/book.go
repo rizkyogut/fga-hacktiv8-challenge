@@ -69,7 +69,7 @@ func (r Repo) GetBookByID(id int64) (res model.Book, err error) {
 	err = rows.Scan(&res.ID, &res.Title, &res.Author, &res.Desc)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			return model.Book{}, errors.New("DATA NOT FOUND")
+			return model.Book{}, errors.New("id not found")
 		}
 		return model.Book{}, err
 	}
@@ -88,7 +88,7 @@ func (r Repo) UpdateBook(id int64, data model.Book) error {
 		return err
 	}
 	if count == 0 {
-		return errors.New("DATA NOT FOUND")
+		return errors.New("id not found")
 	}
 	return nil
 }
@@ -104,7 +104,7 @@ func (r Repo) DeleteBook(id int64) (err error) {
 		return err
 	}
 	if count == 0 {
-		return errors.New("DATA NOT FOUND")
+		return errors.New("id not found")
 	}
 	return nil
 }

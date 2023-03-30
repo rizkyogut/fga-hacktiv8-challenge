@@ -8,10 +8,10 @@ import (
 func RegisterApi(r *gin.Engine, server handler.HttpServer) {
 	api := r.Group("/book") // prefix
 	{
-		api.POST("", server.CreateBook) // /employees
+		api.POST("", server.CreateBook)
 		api.GET("/all", server.GetAllBook)
-		api.GET("/:id", server.GetBookByID)   // /employee/:id
-		api.PUT("/:id", server.UpdateBook)    // /employee/:id
-		api.DELETE("/:id", server.DeleteBook) // /employee/:id
+		api.GET("/:id", server.GetBookByID)
+		api.PUT("/:id", server.UpdateBook)
+		api.DELETE("/:id", server.DeleteBook)
 	}
 }

@@ -109,5 +109,5 @@ func (h HttpServer) DeleteBook(c *gin.Context) {
 		return
 	}
 
-	helper.OkWithMessage(c, "Successfully deleted employee")
+	helper.OkWithMessage(c, "Successfully deleted Book")
 }
