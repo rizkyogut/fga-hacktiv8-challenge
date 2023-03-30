@@ -11,7 +11,7 @@ type BookRepo interface {
 	CreateBook(in model.Book) (res model.Book, err error)
 	GetAllBook() (res []model.Book, err error)
 	GetBookByID(id int64) (res model.Book, err error)
-	UpdateBook(int, model.Book) error
+	UpdateBook(id int64, data model.Book) error
 	DeleteBook(id int64) (err error)
 }
 
@@ -77,7 +77,7 @@ func (r Repo) GetBookByID(id int64) (res model.Book, err error) {
 	return res, nil
 }
 
-func (r Repo) UpdateBook(id int, data model.Book) error {
+func (r Repo) UpdateBook(id int64, data model.Book) error {
 	res, err := r.db.Exec(query.UpdateBook, id, data.Title, data.Author, data.Desc)
 	if err != nil {
 		return err
