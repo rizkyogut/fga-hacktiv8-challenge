@@ -8,7 +8,7 @@ import (
 )
 
 type Book struct {
-	BookID int    `gorm:"primary_key;auto_increment;not_null" json:"book_id"`
+	BookID int    `json:"book_id"`
 	Title  string `json:"title"`
 	Author string `json:"author"`
 	Desc   string `json:"desc"`
@@ -33,7 +33,8 @@ func CreateBook(ctx *gin.Context) {
 	BookDatas = append(BookDatas, newBook)
 
 	ctx.JSON(http.StatusCreated, gin.H{
-		"book": newBook,
+		"book":    newBook,
+		"message": fmt.Sprintf("Book has been sucessfully to Created"),
 	})
 }
 
@@ -98,8 +99,7 @@ func UpdateBook(ctx *gin.Context) {
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{
-		"error_status":  "Data Not Found",
-		"error_message": fmt.Sprintf("Book with id %v has been sucessfully updated", bookID),
+		"message": fmt.Sprintf("book with id %v successfully updated", bookID),
 	})
 }
 
