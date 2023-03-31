@@ -1,6 +1,6 @@
 # REST API Item Book
 
-## Challange 
+## Challenge 
 
 ### Buatlah Simple Rest API dengan menggunakan PostgreSQL dengan method sebagai berikut :
 
