@@ -11,7 +11,7 @@ type BookRepo interface {
 	CreateBook(in model.Book) (res model.Book, err error)
 	GetAllBook() (res []model.Book, err error)
 	GetBookByID(id int64) (res model.Book, err error)
-	UpdateBook(id int64, data model.Book) error
+	UpdateBook(id int64, data model.Book) (err error)
 	DeleteBook(id int64) (err error)
 }
 
@@ -31,18 +31,17 @@ func (r Repo) CreateBook(data model.Book) (res model.Book, err error) {
 	)
 
 	if err != nil {
-		return model.Book{}, err
+		return res, err
 	}
 
-	return res, nil
+	return res, err
 }
 
 func (r Repo) GetAllBook() (res []model.Book, err error) {
-	res = []model.Book{}
 
 	rows, err := r.db.Query(query.GetAllBook)
 	if err != nil {
-		return []model.Book{}, err
+		return res, err
 	}
 
 	defer rows.Close()
@@ -52,13 +51,13 @@ func (r Repo) GetAllBook() (res []model.Book, err error) {
 
 		err := rows.Scan(&book.ID, &book.Title, &book.Author, &book.Desc)
 		if err != nil {
-			return []model.Book{}, err
+			return res, err
 		}
 		res = append(res, book)
 
 	}
 
-	return res, nil
+	return res, err
 }
 
 func (r Repo) GetBookByID(id int64) (res model.Book, err error) {
@@ -69,15 +68,15 @@ func (r Repo) GetBookByID(id int64) (res model.Book, err error) {
 	err = rows.Scan(&res.ID, &res.Title, &res.Author, &res.Desc)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			return model.Book{}, errors.New("id not found")
+			return model.Book{}, nil
 		}
 		return model.Book{}, err
 	}
 
-	return res, nil
+	return res, err
 }
 
-func (r Repo) UpdateBook(id int64, data model.Book) error {
+func (r Repo) UpdateBook(id int64, data model.Book) (err error) {
 	res, err := r.db.Exec(query.UpdateBook, id, data.Title, data.Author, data.Desc)
 	if err != nil {
 		return err
@@ -87,10 +86,11 @@ func (r Repo) UpdateBook(id int64, data model.Book) error {
 	if err != nil {
 		return err
 	}
+
 	if count == 0 {
 		return errors.New("id not found")
 	}
-	return nil
+	return err
 }
 
 func (r Repo) DeleteBook(id int64) (err error) {
@@ -106,5 +106,5 @@ func (r Repo) DeleteBook(id int64) (err error) {
 	if count == 0 {
 		return errors.New("id not found")
 	}
-	return nil
+	return err
 }
