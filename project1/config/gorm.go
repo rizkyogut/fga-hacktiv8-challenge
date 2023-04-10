@@ -53,12 +53,7 @@ func (p *Gorm) OpenConnection() error {
 	// init dsn
 	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", p.Address, p.Port, p.Username, p.Password, p.Database)
 
-	dbConnection, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
-		// NamingStrategy: schema.NamingStrategy{
-		// 	TablePrefix:   "db_go_sql.",
-		// 	SingularTable: false,
-		// },
-	})
+	dbConnection, err := gorm.Open(postgres.Open(dsn))
 	if err != nil {
 		return err
 	}
