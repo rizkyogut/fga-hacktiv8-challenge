@@ -1,8 +1,8 @@
-# REST API Item Book With GORM
+# REST API Item Book
 
-## Project-Showcase 
+## Challenge 
 
-### Buatlah Simple Rest API menggunakan GORM dan PostgreSQL dengan method sebagai berikut :
+### Buatlah Simple Rest API dengan menggunakan PostgreSQL dengan method sebagai berikut :
 
 1. Get All Book
 2. Get Book By ID
@@ -13,16 +13,16 @@
 ## Output
 
 1. Get All Book
-<img width="600" alt="image" src="https://user-images.githubusercontent.com/98185052/229319781-b9948430-f95c-49fc-9303-1bb71361e2d1.png">
+<img width="720" alt="image" src="https://user-images.githubusercontent.com/98185052/228959507-faaf94f0-dbdf-4a81-8824-8fd6e8ca6d2b.png">
 
 2. Get Book By ID
-<img width="600" alt="image" src="https://user-images.githubusercontent.com/98185052/229319798-8f1bc96f-6d7b-48ff-a9cb-8643d18187fe.png">
+<img width="720" alt="image" src="https://user-images.githubusercontent.com/98185052/228959797-29719154-0209-432e-8b7c-ffad4186e177.png">
 
 3. Create Book
-<img width="600" alt="image" src="https://user-images.githubusercontent.com/98185052/229319839-396dfa2b-64b0-499d-9afd-9766d7687a23.png">
+<img width="720" alt="image" src="https://user-images.githubusercontent.com/98185052/228961769-275ca110-0fe1-4a4e-8449-3a5a6e39ebcc.png">
 
 4. Update Book
-<img width="600" alt="image" src="https://user-images.githubusercontent.com/98185052/229319907-0b4c8ffb-8db7-4309-aba6-a4d67f38f1ce.png">
+<img width="720" alt="image" src="https://user-images.githubusercontent.com/98185052/228960267-00ebdeaa-6179-4b5c-bfee-af9829cb1256.png">
 
 5. Delete Book
-<img width="600" alt="image" src="https://user-images.githubusercontent.com/98185052/229319917-c065a6d1-7e57-41c7-b84f-b3e32573599e.png">
+<img width="720" alt="image" src="https://user-images.githubusercontent.com/98185052/228961372-03912997-df44-4d8a-9ff3-219c322a43fb.png">
