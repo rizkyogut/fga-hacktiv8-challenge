@@ -7,8 +7,9 @@ import (
 	"challenge/project1/route"
 	"challenge/project1/service"
 	"fmt"
-	"github.com/gin-gonic/gin"
 	"os"
+
+	"github.com/gin-gonic/gin"
 )
 
 var router = gin.New()
@@ -20,6 +21,6 @@ func StartApplication() {
 
 	route.RegisterApi(router, server)
 
-	port := os.Getenv("APP_PORT")
+	port := os.Getenv("PORT")
 	router.Run(fmt.Sprintf(":%s", port))
 }
